@@ -2,6 +2,7 @@
 #define pinLedVerde   10
 #define pinLedAzul     9
 #define pinButton      2
+#define pinPotenciometro  A0
 
 int pinLeds[] = {
   pinLedRojo,
@@ -23,14 +24,10 @@ void setup () {
 }
 
 void loop () {
-  for (int i=0; i<=255; i++) {
-    analogWrite(pinLeds[contLed], i);
-    delay(5);
-  }
-  for (int i=255; i>=0; i--) {
-    analogWrite(pinLeds[contLed], i);
-    delay(5);
-  }
+  int valorPot = analogRead(pinPotenciometro);    // 0 - 1023
+  int valor = map(valorPot, 0, 1023, 0, 255);
+
+  analogWrite(pinLeds[contLed], valor);
   attachInterrupt(digitalPinToInterrupt(pinButton), rotarLed, FALLING);
 }
 
