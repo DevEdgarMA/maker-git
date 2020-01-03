@@ -1,12 +1,20 @@
-#define pinLed  LED_BUILTIN
+#define pinLedRojo    11
+#define pinLedVerde   10
+#define pinLedAzul     9
 
 void setup () {
-  pinMode(pinLed, OUTPUT);
+  pinMode(pinLedRojo, OUTPUT);
+  pinMode(pinLedVerde, OUTPUT);
+  pinMode(pinLedAzul, OUTPUT);
 }
 
 void loop () {
-  digitalWrite(pinLed, HIGH);
-  delay(500);
-  digitalWrite(pinLed, LOW);
-  delay(500);
+  for (int i=0; i<=255; i++) {
+    analogWrite(pinLedRojo, i);
+    delay(5);
+  }
+  for (int i=255; i>=0; i--) {
+    analogWrite(pinLedRojo, i);
+    delay(5);
+  }
 }
