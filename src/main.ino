@@ -43,3 +43,8 @@ void off () {
   analogWrite(pinLedVerde, 0);
   analogWrite(pinLedAzul, 0);
 }
+void off () {
+  analogWrite(pinLedRojo, 0);
+  analogWrite(pinLedVerde, 0);
+  analogWrite(pinLedAzul, 0);
+}
